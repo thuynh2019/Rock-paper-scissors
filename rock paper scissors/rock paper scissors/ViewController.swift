@@ -23,13 +23,13 @@ class ViewController: UIViewController {
     var rival: Int = 0
     
     @IBAction func rock(_ sender: Any) {
-        var player = 1
+        player = 1
         myLabel.text = "rock"
-        rival = Int.random(in: 1...3)
+        _ = Int.random(in: 1...3)
         if rival != 0 {
             switch rival {
             case 1:
-                cpuLabel.text = "rock"
+            cpuLabel.text = "rock"
             case 2:
             cpuLabel.text = "paper"
             case 3:
@@ -41,13 +41,13 @@ class ViewController: UIViewController {
         winCheck()
     }
     @IBAction func paper(_ sender: Any) {
-        var player = 2
+        player = 2
         myLabel.text = "paper"
         rival = Int.random(in: 1...3)
         if rival != 0 {
             switch rival {
             case 1:
-                cpuLabel.text = "rock"
+            cpuLabel.text = "rock"
             case 2:
             cpuLabel.text = "paper"
             case 3:
@@ -59,13 +59,13 @@ class ViewController: UIViewController {
         winCheck()
     }
     @IBAction func scissor(_ sender: Any) {
-        var player = 3
+        player = 3
         myLabel.text = "scissors"
         rival = Int.random(in: 1...3)
         if rival != 0 {
             switch rival {
             case 1:
-                cpuLabel.text = "rock"
+            cpuLabel.text = "rock"
             case 2:
             cpuLabel.text = "paper"
             case 3:
@@ -82,22 +82,22 @@ class ViewController: UIViewController {
             winLabel.text = "Tie!"
         }
         if player == 1 && rival == 2 {
-            winLabel.text = "Lose!"
+            winLabel.text = "You Lose"
         }
         if player == 1 && rival == 3 {
-            winLabel.text = "Win!"
+            winLabel.text = "You Win!"
         }
         if player == 2 && rival == 1 {
-            winLabel.text = "Win!"
+            winLabel.text = "You Win!"
         }
         if player == 2 && rival == 3 {
-            winLabel.text = "Lose!"
+            winLabel.text = "You Lose"
         }
         if player == 3 && rival == 1 {
-            winLabel.text = "Lose!"
+            winLabel.text = "You Lose"
         }
         if player == 3 && rival == 2 {
-            winLabel.text = "Win!"
+            winLabel.text = "You Win!"
         }
         
     }
