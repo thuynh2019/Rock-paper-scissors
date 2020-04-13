@@ -14,7 +14,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var cpuLabel: UILabel!
+    
+    @IBAction func rock(_ sender: Any) {
+        myLabel.text = "rock"
+    }
+    @IBAction func paper(_ sender: Any) {
+        myLabel.text = "paper"
+    }
+    @IBAction func scissor(_ sender: Any) {
+        myLabel.text = "scissors"
+    }
+    
+    func winCheck(){
+        
+    }
+    
 }
 
