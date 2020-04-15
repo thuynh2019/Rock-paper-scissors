@@ -19,87 +19,66 @@ class ViewController: UIViewController {
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var cpuLabel: UILabel!
     
-    var player: Int = 0
-    var rival: Int = 0
     
     @IBAction func rock(_ sender: Any) {
-        player = 1
-        myLabel.text = "rock"
-        _ = Int.random(in: 1...3)
-        if rival != 0 {
-            switch rival {
-            case 1:
-            cpuLabel.text = "rock"
-            case 2:
-            cpuLabel.text = "paper"
-            case 3:
-            cpuLabel.text = "scissors"
-            default:
-                break
-            }
+        let cpuMove: String = cpuChoice()
+        var _: String = "..."
+        if cpuMove == "ROCK" {
+            myLabel.text = "Rock"
+            cpuLabel.text = "Rock"
+            winLabel.text = "Tie!"
+        } else if cpuMove == "SCISSORS" {
+            myLabel.text = "Rock"
+            cpuLabel.text = "Scissors"
+            winLabel.text = "You Win!"
+        } else if cpuMove == "PAPER" {
+            myLabel.text = "Rock"
+            cpuLabel.text = "Paper"
+            winLabel.text = "You lose"
         }
-        winCheck()
     }
     @IBAction func paper(_ sender: Any) {
-        player = 2
-        myLabel.text = "paper"
-        rival = Int.random(in: 1...3)
-        if rival != 0 {
-            switch rival {
-            case 1:
-            cpuLabel.text = "rock"
-            case 2:
-            cpuLabel.text = "paper"
-            case 3:
-            cpuLabel.text = "scissors"
-            default:
-                break
+            let cpuMove: String = cpuChoice()
+            var _: String = "..."
+            if cpuMove == "ROCK" {
+                myLabel.text = "Paper"
+                cpuLabel.text = "Rock"
+                winLabel.text = "You Win!"
+            } else if cpuMove == "SCISSORS" {
+                myLabel.text = "Paper"
+                cpuLabel.text = "Scissors"
+                winLabel.text = "You Lose"
+            } else if cpuMove == "PAPER" {
+                myLabel.text = "Paper"
+                cpuLabel.text = "Paper"
+                winLabel.text = "Tie!"
             }
         }
-        winCheck()
-    }
     @IBAction func scissor(_ sender: Any) {
-        player = 3
-        myLabel.text = "scissors"
-        rival = Int.random(in: 1...3)
-        if rival != 0 {
-            switch rival {
-            case 1:
-            cpuLabel.text = "rock"
-            case 2:
-            cpuLabel.text = "paper"
-            case 3:
-            cpuLabel.text = "scissors"
-            default:
-                break
+            let cpuMove: String = cpuChoice()
+            var _: String = "..."
+            if cpuMove == "ROCK" {
+                myLabel.text = "Scissors"
+                cpuLabel.text = "Rock"
+                winLabel.text = "You Lose"
+            } else if cpuMove == "SCISSORS" {
+                myLabel.text = "Scissors"
+                cpuLabel.text = "Scissors"
+                winLabel.text = "Tie!"
+            } else if cpuMove == "PAPER" {
+                myLabel.text = "Scissors"
+                cpuLabel.text = "Paper"
+                winLabel.text = "You Win!"
             }
         }
-        winCheck()
-    }
     
-    func winCheck(){
-        if player == rival {
-            winLabel.text = "Tie!"
-        }
-        if player == 1 && rival == 2 {
-            winLabel.text = "You Lose"
-        }
-        if player == 1 && rival == 3 {
-            winLabel.text = "You Win!"
-        }
-        if player == 2 && rival == 1 {
-            winLabel.text = "You Win!"
-        }
-        if player == 2 && rival == 3 {
-            winLabel.text = "You Lose"
-        }
-        if player == 3 && rival == 1 {
-            winLabel.text = "You Lose"
-        }
-        if player == 3 && rival == 2 {
-            winLabel.text = "You Win!"
-        }
-        
+    func cpuChoice() -> String {
+        var option: [String] = []
+        option.append("ROCK")
+        option.append("SCISSORS")
+        option.append("PAPER")
+        let randomNumber = Int(arc4random_uniform(3))
+        return option[randomNumber]
     }
     
 }
